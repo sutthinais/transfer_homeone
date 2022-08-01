@@ -41,7 +41,7 @@ class _ShowSecondPageState extends State<ShowSecondPage> {
         actions: <Widget>[
           IconButton(
             icon: const Icon(
-              Icons.playlist_add_circle_rounded,
+              Icons.border_color_rounded,
               color: Colors.white,
             ),
             onPressed: () {
@@ -87,7 +87,6 @@ class _ShowSecondPageState extends State<ShowSecondPage> {
                   ),
                 ],
               ),
-              Gap(20),
               Column(
                 children: [
                   Row(
@@ -114,161 +113,130 @@ class _ShowSecondPageState extends State<ShowSecondPage> {
                   ),
                   const Gap(10),
                   Row(
-                    children: const [
-                      Expanded(child: MyStatefulWidget()),
-                      Gap(10),
-                      Expanded(child: MyStatefulWidget()),
+                    children: [
+                      Expanded(
+                        child: ClipRRect(
+                          borderRadius: BorderRadius.circular(10),
+                          child: Container(
+                            padding: EdgeInsets.symmetric(horizontal: 10),
+                            color: Colors.white,
+                            child: TextField(
+                              decoration: InputDecoration(
+                                border: InputBorder.none,
+                                hintText: '5555',
+                                hintStyle: TextStyle(
+                                    fontSize: 12, color: HexColor('#9F9B9B')),
+                              ),
+                            ),
+                          ),
+                        ),
+                      ),
+                      Gap(20),
+                      Expanded(
+                        child: ClipRRect(
+                          borderRadius: BorderRadius.circular(10),
+                          child: Container(
+                            padding: EdgeInsets.symmetric(horizontal: 10),
+                            color: Colors.white,
+                            child: TextField(
+                              decoration: InputDecoration(
+                                border: InputBorder.none,
+                                hintText: '5555',
+                                hintStyle: TextStyle(
+                                    fontSize: 12, color: HexColor('#9F9B9B')),
+                              ),
+                            ),
+                          ),
+                        ),
+                      ),
                     ],
                   ),
-                ],
-              ),
-              Gap(20),
-              Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text(
-                    'หมายเหตุ',
-                    style: GoogleFonts.kanit(fontSize: 15),
-                  ),
-                  Gap(10),
-                  Container(
-                    height: 140,
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(10),
-                      color: Colors.white,
-                    ),
-                    child: const Padding(
-                      padding: EdgeInsets.only(left: 10),
-                      child: TextField(
-                        decoration: InputDecoration(
-                            border: InputBorder.none, hintText: ''),
-                      ),
-                    ),
-                  ),
-                ],
-              ),
-              Gap(20),
-              Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text(
-                    'เอกสารอ้างอิง',
-                    style: GoogleFonts.kanit(fontSize: 15),
-                  ),
-                  Gap(10),
-                  Container(
-                    height: 50,
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(10),
-                      color: Colors.white,
-                    ),
-                    child: const Padding(
-                      padding: EdgeInsets.only(left: 10),
-                      child: TextField(
-                        decoration: InputDecoration(
-                            border: InputBorder.none, hintText: ''),
-                      ),
-                    ),
-                  ),
-                ],
-              ),
-              Gap(150),
-              Row(
-                children: [
-                  Expanded(
-                    child: ClipRRect(
-                      borderRadius: const BorderRadius.only(
-                          topLeft: Radius.circular(14),
-                          bottomLeft: Radius.circular(14)),
-                      child: Container(
-                        height: 50,
-                        color: Colors.white,
-                        child: TextButton(
-                          onPressed: () {},
-                          child: Text(
-                            'ยกเลิก',
-                            style: GoogleFonts.kanit(
-                                fontSize: 15, color: Colors.black),
+                  Gap(20),
+                  Column(
+                    children: [
+                      Row(
+                        children: <Widget>[
+                          Expanded(
+                            flex: 2,
+                            child: ClipRRect(
+                              borderRadius: const BorderRadius.only(
+                                topLeft: Radius.circular(25),
+                                topRight: Radius.circular(25),
+                              ),
+                              child: Container(
+                                padding: EdgeInsets.symmetric(horizontal: 10),
+                                color: HexColor('#244EB9'),
+                                height: 49,
+                                child: Padding(
+                                  padding: const EdgeInsets.only(left: 0),
+                                  child: Row(
+                                    mainAxisAlignment:
+                                        MainAxisAlignment.spaceBetween,
+                                    children: [
+                                      ClipRRect(
+                                        borderRadius: BorderRadius.circular(10),
+                                        child: Row(
+                                          children: [
+                                            Container(
+                                              color: HexColor("#D9D9D9"),
+                                              width: 100,
+                                              height: 28,
+                                              child: Center(
+                                                child: Text(
+                                                  'หมายเหตุ',
+                                                  style: GoogleFonts.kanit(
+                                                      fontSize: 15,
+                                                      color: Colors.black),
+                                                ),
+                                              ),
+                                            ),
+                                          ],
+                                        ),
+                                      ),
+                                      const Icon(
+                                        Icons.article_rounded,
+                                        color: Colors.white,
+                                      )
+                                    ],
+                                  ),
+                                ),
+                              ),
+                            ),
                           ),
-                        ),
+                        ],
                       ),
-                    ),
-                  ),
-                  Expanded(
-                    child: ClipRRect(
-                      borderRadius: const BorderRadius.only(
-                          topRight: Radius.circular(14),
-                          bottomRight: Radius.circular(14)),
-                      child: Container(
-                        height: 50,
-                        color: HexColor('#244EB9'),
-                        child: TextButton(
-                          onPressed: () {},
-                          child: Text(
-                            'ตกลง',
-                            style: GoogleFonts.kanit(
-                                fontSize: 15, color: Colors.white),
+                      Row(
+                        children: <Widget>[
+                          Expanded(
+                            flex: 2,
+                            child: ClipRRect(
+                              borderRadius: const BorderRadius.only(
+                                bottomLeft: Radius.circular(25),
+                                bottomRight: Radius.circular(25),
+                              ),
+                              child: Container(
+                                padding: EdgeInsets.symmetric(horizontal: 10),
+                                color: Colors.white,
+                                height: 100,
+                                child: TextField(
+                                  decoration: InputDecoration(
+                                    border: InputBorder.none,
+                                    hintText: 'หมายเหตุ',
+                                    hintStyle: GoogleFonts.kanit(fontSize: 15),
+                                  ),
+                                ),
+                              ),
+                            ),
                           ),
-                        ),
+                        ],
                       ),
-                    ),
+                    ],
                   ),
                 ],
               ),
             ],
           ),
         ],
-      ),
-    );
-  }
-}
-
-class MyStatefulWidget extends StatefulWidget {
-  const MyStatefulWidget({Key? key}) : super(key: key);
-
-  @override
-  State<MyStatefulWidget> createState() => _MyStatefulWidgetState();
-}
-
-class _MyStatefulWidgetState extends State<MyStatefulWidget> {
-  String dropdownValue = 'One';
-
-  @override
-  Widget build(BuildContext context) {
-    return ClipRRect(
-      borderRadius: BorderRadius.circular(10),
-      child: Container(
-        padding: const EdgeInsets.symmetric(horizontal: 10),
-        height: 34,
-        color: Colors.white,
-        child: DropdownButton<String>(
-          value: dropdownValue,
-          icon: const Padding(
-            padding: EdgeInsets.only(left: 110),
-            child: Icon(
-              Icons.arrow_drop_down,
-              color: Colors.black,
-            ),
-          ),
-          elevation: 16,
-          style: GoogleFonts.kanit(color: HexColor('#9F9B9B'), fontSize: 12),
-          underline: Container(
-            height: 2,
-            color: Colors.transparent,
-          ),
-          onChanged: (String? newValue) {
-            setState(() {
-              dropdownValue = newValue!;
-            });
-          },
-          items: <String>['One', 'Two', 'Free', 'Four']
-              .map<DropdownMenuItem<String>>((String value) {
-            return DropdownMenuItem<String>(
-              value: value,
-              child: Text(value),
-            );
-          }).toList(),
-        ),
       ),
     );
   }

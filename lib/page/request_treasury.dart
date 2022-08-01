@@ -42,7 +42,7 @@ class _RequestPageState extends State<RequestPage> {
         actions: <Widget>[
           IconButton(
             icon: const Icon(
-              Icons.playlist_add_circle_rounded,
+              Icons.add_circle_rounded,
               color: Colors.white,
             ),
             onPressed: () {
@@ -116,9 +116,9 @@ class _RequestPageState extends State<RequestPage> {
                   const Gap(10),
                   Row(
                     children: const [
-                      Expanded(child: MyStatefulWidget()),
+                      Expanded(child: MyStatefulWidgetOrigin()),
                       Gap(10),
-                      Expanded(child: MyStatefulWidget()),
+                      Expanded(child: MyStatefulWidgetDestination()),
                     ],
                   ),
                 ],
@@ -238,14 +238,14 @@ class _RequestPageState extends State<RequestPage> {
   }
 }
 
-class MyStatefulWidget extends StatefulWidget {
-  const MyStatefulWidget({Key? key}) : super(key: key);
+class MyStatefulWidgetOrigin extends StatefulWidget {
+  const MyStatefulWidgetOrigin({Key? key}) : super(key: key);
 
   @override
-  State<MyStatefulWidget> createState() => _MyStatefulWidgetState();
+  State<MyStatefulWidgetOrigin> createState() => _MyStatefulWidgetOriginState();
 }
 
-class _MyStatefulWidgetState extends State<MyStatefulWidget> {
+class _MyStatefulWidgetOriginState extends State<MyStatefulWidgetOrigin> {
   String dropdownValue = 'One';
 
   @override
@@ -258,12 +258,57 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
         color: Colors.white,
         child: DropdownButton<String>(
           value: dropdownValue,
-          icon: const Padding(
-            padding: EdgeInsets.only(left: 110),
-            child: Icon(
-              Icons.arrow_drop_down,
-              color: Colors.black,
-            ),
+          icon: Icon(
+            Icons.arrow_drop_down,
+            color: Colors.black,
+          ),
+          elevation: 16,
+          style: GoogleFonts.kanit(color: HexColor('#9F9B9B'), fontSize: 12),
+          underline: Container(
+            height: 2,
+            color: Colors.transparent,
+          ),
+          onChanged: (String? newValue) {
+            setState(() {
+              dropdownValue = newValue!;
+            });
+          },
+          items: <String>['One', 'Two', 'Free', 'Four']
+              .map<DropdownMenuItem<String>>((String value) {
+            return DropdownMenuItem<String>(
+              value: value,
+              child: Text(value),
+            );
+          }).toList(),
+        ),
+      ),
+    );
+  }
+}
+
+class MyStatefulWidgetDestination extends StatefulWidget {
+  const MyStatefulWidgetDestination({Key? key}) : super(key: key);
+
+  @override
+  State<MyStatefulWidgetDestination> createState() => _MyStatefulWidgetDestinationState();
+}
+
+class _MyStatefulWidgetDestinationState extends State<MyStatefulWidgetDestination> {
+  String dropdownValue = 'One';
+
+  @override
+  Widget build(BuildContext context) {
+    return ClipRRect(
+      borderRadius: BorderRadius.circular(10),
+      child: Container(
+        padding: const EdgeInsets.symmetric(horizontal: 10),
+        height: 34,
+        color: Colors.white,
+        child: DropdownButton<String>(
+          value: dropdownValue,
+          icon: Icon(
+            Icons.arrow_drop_down,
+            color: Colors.black,
           ),
           elevation: 16,
           style: GoogleFonts.kanit(color: HexColor('#9F9B9B'), fontSize: 12),
